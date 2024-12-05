@@ -10,7 +10,7 @@ const getSensors = async (): Promise<Record<string, ZigBeeDevice>> => {
         return sensors;
     } catch (error) {
         return {
-            error: error.message
+            "error": error as unknown as ZigBeeDevice
         }
     }
 }
