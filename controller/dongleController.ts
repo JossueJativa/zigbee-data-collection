@@ -9,7 +9,7 @@ const enableDongle = async(): Promise<void> => {
         });
         console.log('Dongle enabled for 60 seconds');
     } catch (error) {
-        console.log(`Error enabling dongle: ${error.message}`);
+        console.log(`Error enabling dongle: ${error}`);
     }
 }
 
