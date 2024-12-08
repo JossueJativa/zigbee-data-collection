@@ -25,6 +25,7 @@ const addNewDevice = async (panicButtonsIds: string[]): Promise<void> => {
             for (const sensor of Object.values(sensors)) {
                 if (sensor.type === "ZHASwitch" && !panicButtonsIds.includes(sensor.id)) {
                     panicButtonsIds.push(sensor.uniqueid);
+                    console.log(`The sensor: ${sensor.uniqueid} is added`);
                 }
             }
         }, 10000
