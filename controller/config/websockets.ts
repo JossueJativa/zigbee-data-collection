@@ -1,4 +1,3 @@
-import { error, timeStamp } from "console";
 import { deconzWS, exposedPort } from "./dataService"
 import WebSocket from 'ws'
 import { panicButtonId } from "../../data/devicesId";

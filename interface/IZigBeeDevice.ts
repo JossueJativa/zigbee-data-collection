@@ -1,6 +1,6 @@
 interface ZigBeeDevice {
     id: string;
-    uniqueId: string;
+    uniqueid: string;
     type: string;
     name: string;
     state: any;

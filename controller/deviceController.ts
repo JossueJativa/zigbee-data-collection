@@ -21,12 +21,14 @@ const addNewDevice = async (panicButtonsIds: string[]): Promise<void> => {
     setTimeout(
         async () => {
             const sensors = await getSensors();
+            
             for (const sensor of Object.values(sensors)) {
-                if (sensor.type == 'ZHASwitch' && !panicButtonsIds.includes(sensor.uniqueId)) {
-                    console.log(`Panic button ${sensor.uniqueId} added`);
+                if (sensor.type === "ZHASwitch" && !panicButtonsIds.includes(sensor.id)) {
+                    panicButtonsIds.push(sensor.uniqueid);
                 }
             }
-        }, 10000);
+        }, 10000
+    );
 }
 
 export { getSensors, addNewDevice };
