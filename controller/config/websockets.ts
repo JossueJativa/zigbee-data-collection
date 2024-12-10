@@ -1,7 +1,8 @@
-import { deconzWS, exposedPort } from "./dataService"
 import WebSocket from 'ws'
-import { panicButtonId, gasDetectorsId } from "../../data/devicesId";
-import { handleGasDetectorEvent, handlePanicButtonEvent } from "../events/handleEvents";
+
+import { deconzWS, exposedPort } from "./dataService"
+import { panicButtonId, gasDetectorsId } from "../../data";
+import { handleGasDetectorEvent, handlePanicButtonEvent } from "../events";
 
 const setupWebSocket = async(): Promise<void> => {
     const wss = new WebSocket.Server({

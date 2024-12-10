@@ -5,3 +5,5 @@ interface ZigBeeDevice {
     name: string;
     state: any;
 }
+
+export { ZigBeeDevice };

@@ -1,8 +1,9 @@
 import axios from "axios";
 
-import { baseUrl } from "./config/dataService";
+import { baseUrl } from "./config";
 import { enableDongle } from "./dongleController";
-import { gasDetectorsId, panicButtonId } from "../data/devicesId";
+import { gasDetectorsId, panicButtonId } from "../data";
+import { ZigBeeDevice } from "../interface";
 
 const getSensors = async (): Promise<Record<string, ZigBeeDevice>> => {
     try {

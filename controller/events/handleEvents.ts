@@ -1,5 +1,5 @@
 import { WebSocketServer } from "ws";
-import { ZigbeeEvent, ZigbeeEventType } from "../../interface/IZigBeeEvent";
+import { ZigbeeEvent, ZigbeeEventType } from "../../interface";
 
 const sentEventToClient = (wss: WebSocketServer, event: ZigbeeEvent) => {
     wss.clients.forEach((client) => {
