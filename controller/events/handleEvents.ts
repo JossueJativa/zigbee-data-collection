@@ -33,13 +33,13 @@ const createEvent = (type: ZigbeeEventType, message: string) => ({
 const handlePanicButtonEvent = (wss: WebSocketServer) => {
     const panicButtonEvent = createEvent('PanicButton', 'El botón de pánico ha sido presionado');
     sentEventToClient(wss, panicButtonEvent);
-    console.log(`Panic button event sent to clients ${panicButtonEvent}`);
+    console.log('Panic button event sent to clients', panicButtonEvent);
 };
 
 const handleGasDetectorEvent = (wss: WebSocketServer) => {
     const gasDetectorEvent = createEvent('GasDetector', 'El detector de gas ha detectado gas');
     sentEventToClient(wss, gasDetectorEvent);
-    console.log(`Gas detector event sent to clients ${gasDetectorEvent}`);
+    console.log('Gas detector event sent to clients', gasDetectorEvent);
 };
 
 export { handlePanicButtonEvent, handleGasDetectorEvent };
