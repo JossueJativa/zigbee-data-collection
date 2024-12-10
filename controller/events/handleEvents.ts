@@ -12,8 +12,8 @@ const sentEventToClient = (wss: WebSocketServer, event: ZigbeeEvent) => {
 const createEvent = (type: ZigbeeEventType, message: string) => ({
     type,
     event: 'zigbeeEvent',
-    message: `${message} a las ${new Date().toLocaleString(
-        'es-CO',
+    message: `${message} el día ${new Date().toLocaleString(
+        'es-EC',
         {
             weekday: 'long',
             year: 'numeric',
@@ -21,7 +21,7 @@ const createEvent = (type: ZigbeeEventType, message: string) => ({
             day: 'numeric',
         }
     )} a las ${new Date().toLocaleTimeString(
-        'es-CO',
+        'es-EC',
         {
             hour: '2-digit',
             minute: '2-digit',
