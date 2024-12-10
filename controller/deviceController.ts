@@ -36,8 +36,6 @@ const addNewDevice = async (): Promise<void> => {
         async () => {
             const sensors = await getSensors();
             const lights = await getGasDetector();
-
-            console.log("lights: ", lights);
             
             for (const sensor of Object.values(sensors)) {
                 if (sensor.type === "ZHASwitch" && !panicButtonId.includes(sensor.id)) {
