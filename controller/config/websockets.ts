@@ -1,6 +1,6 @@
 import { deconzWS, exposedPort } from "./dataService"
 import WebSocket from 'ws'
-import { panicButtonId } from "../../data/devicesId";
+import { panicButtonId, gasDetectorsId } from "../../data/devicesId";
 
 const setupWebSocket = async() => {
     const wss = new WebSocket.Server({
@@ -52,6 +52,39 @@ const setupWebSocket = async() => {
             });
 
             console.log(`Panic button event sent to clients ${panicButtonEvent}`);
+        }
+
+        if (event && gasDetectorsId.includes(event.uniqueId)) {
+            console.log(event);
+            const gasDetectorEvent = {
+                type: 'GasDetector',
+                event: 'zigbeeEvent',
+                message: `El detector de gas ha detectado gas a las ${new Date().toLocaleString(
+                    'es-CO',
+                    {
+                        weekday: 'long',
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                    }
+                )} a las ${new Date().toLocaleTimeString(
+                    'es-CO',
+                    {
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        second: '2-digit',
+                    }
+                )}`,
+                timeStamp: new Date().toISOString()
+            };
+
+            wss.clients.forEach((client) => {
+                if (client.readyState === WebSocket.OPEN) {
+                    client.send(JSON.stringify(gasDetectorEvent));
+                }
+            });
+
+            console.log(`Gas detector event sent to clients ${gasDetectorEvent}`);
         }
     });
 

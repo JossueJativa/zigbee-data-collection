@@ -1,5 +1,7 @@
 const panicButtonId: string[] = [];
+const gasDetectorsId: string[] = [];
 
 export {
-    panicButtonId
+    panicButtonId,
+    gasDetectorsId
 }
